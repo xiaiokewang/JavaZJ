@@ -1,0 +1,10 @@
+高效字节流
+    字节缓冲输入流 BufferedInputStream
+        构造方法 public BufferedOutputStream(OutputStream os)
+    字节缓冲输出流 BufferedOutputStream
+        构造方法 public BufferedInputStream(InputStream is)
+
+    注意事项：
+        为什么构造方法传递的是一个: OutputStream(或者InputStream), 而不是具体的文件或者路径呢?
+            字节缓冲流仅仅提供缓冲区, 而真正的底层的读写数据还是需要基本的流对象进行操作
+            提供的缓冲区在内存中，本质上先将磁盘中的内容加载到内存中，然后在内存中再读和写就很快了

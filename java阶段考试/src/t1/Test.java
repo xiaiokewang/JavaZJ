@@ -3,7 +3,6 @@ package t1;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
-
 //读取stu.txt文件内容，以=切割封装成Student对象，添加到集合中，按照学生成绩降序排序以后，以一定格式追加写回stu.txt文件中
 public class Test {
     private static String path = "E:\\JavaZJ\\java阶段考试\\src\\t1\\stu.txt";
