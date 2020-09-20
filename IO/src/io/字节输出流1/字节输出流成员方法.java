@@ -12,8 +12,8 @@ public class 字节输出流成员方法 {
     // 标志位
     private int len = -1;
     // 输入输出流
-    private static InputStream is;
-    private static OutputStream os;
+    private static InputStream is = null;
+    private static OutputStream os = null;
 
     /**
      * 1 一次写一字节
@@ -22,9 +22,9 @@ public class 字节输出流成员方法 {
      */
     @Test
     public void Demo1() throws FileNotFoundException {
-        FileOutputStream fos = new FileOutputStream(outstr);
+        os = new FileOutputStream(outstr,true);
         try {
-            method1(fos);
+            method1(os);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -81,7 +81,9 @@ public class 字节输出流成员方法 {
         os.write('a');
         os.write('b');
         os.write('c');
-        os.write('\n');
+//      换行
+//      window操作系统: \r\n,  linux: \n   mac: \r
+        os.write("\r\n".getBytes());
         os.write(97);
         os.write(98);
         os.write(99);
@@ -114,6 +116,9 @@ public class 字节输出流成员方法 {
         while ((len = is.read(buf)) != -1) {
             os.write(buf, 0, len);
         }
-        os.close();
+        if (os != null) {
+            os.close();
+            os = null;
+        }
     }
 }
